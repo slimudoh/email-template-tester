@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendMailJob;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Mail;
 
 class EmailController extends Controller
 {
@@ -30,18 +30,21 @@ class EmailController extends Controller
         }
 
         try {
-            $data = array(
-                'userEmail' => $request->email_address,
-                'userContent' => $request->email_code,
-            );
+            $emailList = explode(',', $request->email_address);
 
-            Mail::send('email', $data, function ($m) use ($data) {
-                $m->from('no-reply@addqart.com', 'System');
-                $m->to($data['userEmail'], 'User')->subject('Test Email!')
-                    ->cc(['slimudoh@gmail.com', 'slimudoh@hotmail.com', 'slimudoh@yahoo.com']);
-            });
+            $emailValidation = '/^\\S+@\\S+\\.\\S+$/';
+            foreach ($emailList as $email) {
+                if (preg_match($emailValidation, $email) == 1) {
+                    $data = array(
+                        'email' => $email,
+                        'userContent' => $request->email_code,
+                    );
 
-            // } catch (\Throwable $ex) {
+                    SendMailJob::dispatch($data);
+                }
+            }
+
+        } catch (\Throwable$ex) {
         } catch (Exception $ex) {
             return redirect()->back()->withErrors($ex)->withInput();
         }

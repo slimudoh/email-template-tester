@@ -1,1 +1,1 @@
-{!! $userContent !!}
+{!! $mailData['userContent'] !!}

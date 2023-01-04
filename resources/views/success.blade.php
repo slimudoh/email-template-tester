@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,23 +17,23 @@
             padding: 50px 0;
             text-align: center;
             display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
 
 
         }
 
-        .email_container > h3 {
+        .email_container>h3 {
             text-align: center;
         }
 
-        .email_container > form > div  > input {
+        .email_container>form>div>input {
             width: 250px;
             height: 40px;
             background: #F5F6F8;
-/* Stroke/1 */
+            /* Stroke/1 */
 
             border: 1px solid #E4E6EB;
             box-sizing: border-box;
@@ -53,11 +53,11 @@
 
         }
 
-        .email_container > form > div  > textarea {
+        .email_container>form>div>textarea {
             width: 500px;
             height: 500px;
             background: #F5F6F8;
-/* Stroke/1 */
+            /* Stroke/1 */
 
             border: 1px solid #E4E6EB;
             box-sizing: border-box;
@@ -79,7 +79,7 @@
 
         }
 
-        .email_container > form > div  > button {
+        .email_container>form>div>button {
             background: #D7A81E;
             border-radius: 6px;
             width: 250px;
@@ -96,19 +96,20 @@
 
             color: #fff;
         }
-
     </style>
 </head>
+
 <body>
     <div class="email_container">
         <h3>
             Email sent successfully
         </h3>
 
-            <div>
-               <a href="/">Go Home</a>
-            </div>
+        <div>
+            <a href="/">Go Home</a>
+        </div>
 
     </div>
 </body>
+
 </html>
